@@ -14,10 +14,9 @@
     products from Adafruit!
 */
 /**************************************************************************/
-#include <Wire.h>
-#include <Adafruit_MCP4725.h>
+#include <Tiny_Adafruit_MCP4725.h>
 
-Adafruit_MCP4725 dac;
+Tiny_Adafruit_MCP4725 dac;
 
 // Set this value to 9, 8, 7, 6 or 5 to adjust the resolution
 #define DAC_RESOLUTION    (8)
@@ -172,15 +171,10 @@ const PROGMEM uint16_t DACLookup_FullSine_5Bit[32] =
 };
 
 void setup(void) {
-  Serial.begin(9600);
-  Serial.println("Hello!");
-
   // For Adafruit MCP4725A1 the address is 0x62 (default) or 0x63 (ADDR pin tied to VCC)
   // For MCP4725A0 the address is 0x60 or 0x61
   // For MCP4725A2 the address is 0x64 or 0x65
-  dac.begin(0x62);
-
-  Serial.println("Generating a sine wave");
+  dac.begin(0x60);
 }
 
 void loop(void) {
